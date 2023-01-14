@@ -1,6 +1,7 @@
 import os
 import csv
 import json
+import urllib2
 
 from github import Github, UnknownObjectException  # needs PyGitHub
 
@@ -16,7 +17,7 @@ def main():
 
 
 def get_testdata(owner):
-    with open(DATA_PATH) as csvfile:
+    with urllib2.urlopen(target_url) as csvfile:
         csv_reader_object = csv.DictReader(csvfile, delimiter=';')
         for row in csv_reader_object:
             if row['userid'] == owner:
