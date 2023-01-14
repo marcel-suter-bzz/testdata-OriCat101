@@ -7,7 +7,7 @@ env:
   GHSECRET: ${{ secrets.GITHUB_TOKEN }}
   TARGET_REPO: ${{ github.repository }}
   SCRIPT_REPO: ${{ github.repository }}
-  DATA_PATH: testdata.csv
+  DATA_PATH: https://it.bzz.ch/wikiV2/_media/testdata/m319_lb2_im22.csv
 
 jobs:
   copy-testdata:
