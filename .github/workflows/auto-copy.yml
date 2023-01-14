@@ -11,6 +11,7 @@ env:
 
 jobs:
   copy-testdata:
+    permissions: write-all
     name: CopyTestdata
     runs-on: ubuntu-latest
     steps:
