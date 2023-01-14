@@ -1,5 +1,4 @@
-name: Copy Issues from another repository
-
+name: Copy testdata
 on:
   workflow_dispatch:
 
@@ -21,7 +20,7 @@ jobs:
           pip install pyGithub
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Check-out the TestData Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: ${{ env.SCRIPT_REPO }}
           path: ${{ env.DEVOPS_DIR }}
