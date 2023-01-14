@@ -1,7 +1,7 @@
 import os
 import csv
 import json
-import urllib2
+import urllib.request
 
 from github import Github, UnknownObjectException  # needs PyGitHub
 
