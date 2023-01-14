@@ -17,12 +17,12 @@ def main():
 
 
 def get_testdata(owner):
-    with urllib2.urlopen(target_url) as csvfile:
-        csv_reader_object = csv.DictReader(csvfile, delimiter=';')
-        for row in csv_reader_object:
-            if row['userid'] == owner:
-                csvfile.close()
-                return row
+    response = urllib.request.urlopen(DATA_PATH)
+    lines = [l.decode('utf-8') for l in response.readlines()]
+    csv_reader_object = csv.DictReader(lines, delimiter=';')
+    for row in csv_reader_object:
+        if row['userid'] == owner:
+            return row
 
 
 def get_repo_owner():
