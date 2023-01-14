@@ -1,0 +1,30 @@
+name: Copy Issues from another repository
+
+on:
+  workflow_dispatch:
+
+env:
+  DEVOPS_DIR: devops
+  GHSECRET: ${{ secrets.GITHUB_TOKEN }}
+  TARGET_REPO: ${{ github.repository }}
+  SCRIPT_REPO: ${{ github.repository }}
+  DATA_PATH: testdata.csv
+
+jobs:
+  copy-testdata:
+    name: CopyTestdata
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyGithub
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Check-out the TestData Repo
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.SCRIPT_REPO }}
+          path: ${{ env.DEVOPS_DIR }}
+      - name: Copy the test data
+        run: python ${{ env.DEVOPS_DIR }}/main.py
+        shell: sh
