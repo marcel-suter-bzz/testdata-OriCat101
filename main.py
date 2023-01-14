@@ -5,7 +5,7 @@ import json
 from github import Github, UnknownObjectException  # needs PyGitHub
 
 GITHUB_SECRET = os.environ['GHSECRET']
-REPO_NAME = os.getenv('TARGET_REPO')
+TARGET_REPO = os.getenv('TARGET_REPO')
 DATA_PATH = os.environ['DATA_PATH']
 
 def main():
