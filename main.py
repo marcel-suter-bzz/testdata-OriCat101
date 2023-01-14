@@ -40,7 +40,7 @@ def write_testdata(json_data):
     token = Github(GITHUB_SECRET)
     target_repo = token.get_repo(TARGET_REPO)
     try:
-        existing_data = target_repo.get_contents('testdata2.json')
+        existing_data = target_repo.get_contents('testdata.json')
         target_repo.update_file(
             path='testdata.json',
             message='update tests',
